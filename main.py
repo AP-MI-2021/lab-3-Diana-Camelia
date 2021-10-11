@@ -16,7 +16,6 @@ def cititeLista():
         l.append(int(input("l[" + str(i) + "]")))
     return l
 
-
 def isPrime(x):
     '''
     Determina daca un numar este prim
@@ -30,7 +29,6 @@ def isPrime(x):
             return False
     return True
 
-
 def get_longest_all_primes(l):
     '''
     Determina numerele prime din lista
@@ -43,7 +41,6 @@ def get_longest_all_primes(l):
             rezultat.append(x)
     return rezultat
 
-
 def isDivisor(x):
     '''
     Determina numarul de divizori ai unui numar
@@ -53,11 +50,10 @@ def isDivisor(x):
     nrdivizori = 0
     d = 1
     while d <= x:
-        if n % d == 0:
+        if x % d == 0:
             nrdivizori = d + 1
         d = d + 1
     return nrdivizori
-
 
 def get_longest_same_div_count(l):
     rezultat_div = []
@@ -65,7 +61,6 @@ def get_longest_same_div_count(l):
         if isDivisor(x):
             rezultat_div.append(x)
     return rezultat_div
-
 
 def testIsPrime():
     assert isPrime(-1) is False
@@ -76,13 +71,11 @@ def testIsPrime():
     assert isPrime(4) is False
     assert isPrime(5) is True
 
-
 def testGet_longest_all_primes():
     assert get_longest_all_primes([]) == []
     assert get_longest_all_primes([3, 4, 5, 6]) == [3, 5]
     assert get_longest_all_primes([1, 3, 5, 7, 9]) == [3, 5, 7]
     assert get_longest_all_primes([4, 6, 9, 10]) == []
-
 
 def testGet_longest_same_div_count():
     assert get_longest_same_div_count([1, 2, 3, 4, 5, 6, 7, 8, 9]) == [2, 3, 5, 7]
@@ -91,15 +84,12 @@ def testGet_longest_same_div_count():
     assert get_longest_same_div_count([1, 6, 9, ]) == [6, 9]
     assert get_longest_same_div_count([2, 2, 3, 9]) == [2, 2, 3]
 
-
 def printMenu():
     print("1. Citire date: ")
     print("2. Determinarea celei mai lungi subsecvențe cu proprietatea ca toate numerele sunt prime: ")
-    print(
-        "3. Determinarea celei mai lungi subsecvențe cu proprietatea ca toate numerele au acelasi numar de divizori: ")
+    print("3. Determinarea celei mai lungi subsecvențe cu proprietatea ca toate numerele au acelasi numar de divizori: ")
     print("5. Determinare cea mai lungă subsecvență cu proprietatea 5.")
     print("4. Iesire: ")
-
 
 def is_palindrome(n):
     '''
@@ -117,12 +107,26 @@ def is_palindrome(n):
     else:
         return False
 
-
 def test_is_palindrome():
     assert is_palindrome(189) is False
     assert is_palindrome(18981) is True
     assert is_palindrome(72) is False
 
+def toateElementelePalindroame(lst):
+    """
+    Determina daca toate numerele dintr-o secventa a listei lst sunt palindrom
+    :param lst - lista de numere:
+    :return True sau False:
+    """
+    for x in lst:
+        if is_palindrome(x) is False:
+            return False
+    return True
+
+def test_is_palindrome():
+    assert is_palindrome(189) is False
+    assert is_palindrome(18981) is True
+    assert is_palindrome(72) is False
 
 def get_longest_all_palindromes(lst: list[int]):
     """
@@ -137,11 +141,9 @@ def get_longest_all_palindromes(lst: list[int]):
                 subsecventaMax = lst[i:j + 1]
     return subsecventaMax
 
-
 def test_get_longest_all_palindromes():
     assert get_longest_all_palindromes([1, 2, 89, 3, 4, 5, 6]) == [3, 4, 5, 6]
     assert get_longest_all_palindromes([2, 3, 4, 1, 5]) == [2, 3, 4, 1, 5]
-
 
 def main():
     testIsPrime()
