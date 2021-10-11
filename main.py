@@ -123,11 +123,6 @@ def toateElementelePalindroame(lst):
             return False
     return True
 
-def test_is_palindrome():
-    assert is_palindrome(189) is False
-    assert is_palindrome(18981) is True
-    assert is_palindrome(72) is False
-
 def get_longest_all_palindromes(lst: list[int]):
     """
     Determina cea mai lunga subsecventa de numere de tip palindrom
