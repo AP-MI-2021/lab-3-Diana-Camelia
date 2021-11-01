@@ -82,7 +82,7 @@ def get_longest_all_primes(l):
             poz_max = i
         i = i + 1
     for j in range(n):
-        if j >= poz_max and j <= lung_max:
+        if j >= poz_max and j <= lung_max - 1:
             rezultat.append(l[j])
     return rezultat
 
