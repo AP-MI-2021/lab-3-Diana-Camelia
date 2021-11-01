@@ -60,19 +60,35 @@ def testIsPrime():
 
 def get_longest_all_primes(l):
     '''
-    Determina numerele prime din lista
+    Determina cea mai lunga secventa de numere prime din lista
     :param l: lista de numere intregi
     :return: o subsecventa continand elementele din l
     '''
+    n = len(l)
+    i = 0
+    k = 0
+    nr_prime = 0
+    poz_max = 0
+    lung_max = 0
     rezultat = []
-    for x in l:
-        if isPrime(x) == True:
-            rezultat.append(x)
+    while i <= n:
+        k = i
+        nr_prime = 0
+        while isPrime(l[k]) is True and k <= n:
+            nr_prime = nr_prime + 1
+            k = k + 1
+        if nr_prime > lung_max:
+            lung_max = nr_prime
+            poz_max = i
+        i = i + 1
+    for j in range(n):
+        if j >= poz_max and j <= lung_max:
+            rezultat.append(l[j])
     return rezultat
 
 def testGet_longest_all_primes():
     assert get_longest_all_primes([]) == []
-    assert get_longest_all_primes([3, 4, 5, 6]) == [3, 5]
+    assert get_longest_all_primes([3, 4, 5, 7, 13, 6]) == [5, 7, 13]
     assert get_longest_all_primes([1, 3, 5, 7, 9]) == [3, 5, 7]
     assert get_longest_all_primes([4, 6, 9, 10]) == []
 
