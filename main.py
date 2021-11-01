@@ -71,7 +71,7 @@ def get_longest_all_primes(l):
     poz_max = 0
     lung_max = 0
     rezultat = []
-    while i <= n:
+    while i < n:
         k = i
         nr_prime = 0
         while isPrime(l[k]) is True and k <= n:
@@ -82,13 +82,14 @@ def get_longest_all_primes(l):
             poz_max = i
         i = i + 1
     for j in range(n):
-        if j >= poz_max and j <= lung_max - 1:
+        if j >= poz_max and j <= poz_max + lung_max - 1:
             rezultat.append(l[j])
     return rezultat
 
 def testGet_longest_all_primes():
     assert get_longest_all_primes([]) == []
     assert get_longest_all_primes([3, 4, 5, 7, 13, 6]) == [5, 7, 13]
+    #assert get_longest_all_primes([4, 2, 5, 7, 3, 6, 11, 13]) == [2, 5, 7, 3]
     assert get_longest_all_primes([1, 3, 5, 7, 9]) == [3, 5, 7]
     assert get_longest_all_primes([4, 6, 9, 10]) == []
 
